@@ -1,0 +1,61 @@
+﻿@model HelpDeskTest.Models.AccessRequest
+
+@{
+    ViewBag.Title = "Создание заявки";
+    Layout = "~/Views/Shared/LayoutForUsers.cshtml";
+}
+<h2>Прошу предоставить доступ к следующим системам</h2>
+@using (Html.BeginForm())
+{
+<fieldset>
+
+    <p>
+        Обоснование:
+        <br />
+        @Html.EditorFor(model => model.Rationale)
+    </p>
+
+    <p>
+        @Html.CheckBox("Spark", false)
+        Spark:
+    </p>
+    <p>
+        @Html.CheckBox("PostOffice", false)
+        Почта
+    </p>
+    <p>
+        @Html.CheckBox("NetworkFolder", false)
+        Сетевая папка ВНД:
+    </p>
+
+    <p>
+        Ресурс:
+        <br />
+        @Html.EditorFor(model => model.Resource)
+    </p>
+
+    <p>
+        Период:<br />
+        @Html.EditorFor(model => model.Period)
+        @Html.ValidationMessageFor(model => model.Period)
+    </p>
+
+    <p>
+       Примечание:
+        <br />
+        @Html.EditorFor(model => model.FioEmploye)
+    </p>
+
+    <p>
+        <input type="submit" value="Создать заявку" />
+    </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("К списку сотрудников", "Index")
+</div>
+
+
+<script type="text/javascript">
+        $("#datepicker").datepicker({ dateFormat: 'dd/mm/yy' })
+</script>

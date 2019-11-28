@@ -1,0 +1,64 @@
+﻿@model IEnumerable<HelpDeskTest.Models.ShowInternetBankingingRequestViewModel>
+@{
+    ViewBag.Title = "Заявки";
+}
+
+<table class="table table-hover">
+
+    @Html.ActionLink("Создать заявку", "Create")
+    <tr>
+        <th>Номер заявки</th>
+        <th>Тип документа</th>
+        <th>Статус</th>
+        <th>Автор</th>
+        <th>Дата создания заявки</th>
+        <th>Указать наимнование работ</th>
+        <th>Причина смены пароля</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestId)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestType)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusType)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeId)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfRegistration)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerUsername)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.InternetBankingPin)
+            </td>
+
+
+
+
+
+            <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.RequestId }) |
+                    @Html.ActionLink("Просмотр", "Details", new { id = item.RequestId })
+                </td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("На главную страницу", "Home")
+</p>

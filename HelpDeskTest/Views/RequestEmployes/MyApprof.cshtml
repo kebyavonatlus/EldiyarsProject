@@ -1,0 +1,53 @@
+﻿@model IEnumerable<HelpDeskTest.Models.ConfirmRequestEmploye>
+
+@{
+    ViewBag.Title = "";
+}
+
+<h2>Утвержденные заявки</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestId)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfExit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Confirmed)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestId)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfExit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Confirmed)
+        </td>
+       
+        <td>
+         
+            @Html.ActionLink("Подробнее", "DetailsMyApprof", new { id=item.RequestId }, new { @class = "btn btn-success" }) |
+          
+        </td>
+    </tr>
+}
+
+</table>

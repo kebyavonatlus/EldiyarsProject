@@ -1,0 +1,116 @@
+﻿@model HelpDeskTest.Models.Request
+
+@{
+    ViewBag.Title = "Report";
+    HelpDeskTest.Models.Employe employe = ViewBag.employe;
+    HelpDeskTest.Models.Employe executor = ViewBag.executor;
+  
+}
+
+<h2>Отчет</h2>
+
+<div>
+    <h4>Заявка №:  @Model.RequestId</h4>
+
+    <hr />
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered table-hover">
+                <tbody>
+                    <tr>
+                        <th>
+                            Автор
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            @executor.Name
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <dl class="dl-horizontal">
+      
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestTypeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestTypeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfRegistration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfRegistration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfExit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfExit)
+        </dd>
+
+    </dl>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-bordered table-hover">
+            <tbody>
+                <tr>
+                    <th>
+                        Исполнитель
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        @employe.Name
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<hr />
+
+@*<div class="row">
+    <div class="col-md-6">
+        <table class="table table-bordered table-hover">
+            <tbody>
+                <tr>
+                    <th>
+                        Фио сотрудника
+                    </th>
+                    <th>
+                        Ответ
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        @confirm.EmployeId
+                    </th>
+                    <th>
+                        @confirm.Comment
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>*@

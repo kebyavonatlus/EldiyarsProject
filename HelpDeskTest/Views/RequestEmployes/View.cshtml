@@ -1,0 +1,62 @@
+﻿@model HelpDeskTest.Models.Request
+
+@{
+    ViewBag.Title = "DetailsAccessRequests";
+    HelpDeskTest.Models.AccessRequest accessRequest = ViewBag.accessRequest;
+}
+
+
+<h2>Подробнее о заявке</h2>
+
+<div>
+    <hr />
+    <table class="table-hover">
+        <tr>
+            <td>
+                @Model.RequestId
+            <td>
+            <td>
+                @Model.DateOfRegistration
+            <td>
+            <td>
+                @Model.EmployeId
+            <td>
+                </tr>
+        </table>
+        </div>
+
+
+
+                <p>
+                    <div>
+                        <hr />
+                        <table class="table-hover">
+                            <tr>
+                                <td>
+                                    @accessRequest.RequestId
+                                <td>
+                                <td>
+                                    @accessRequest.Rationale
+                                <td>
+                                <td>
+                                    @accessRequest.Spark
+                                <td>
+                                <td>
+                                    @accessRequest.NetworkFolder
+                                <td>
+                                <td>
+                                    @accessRequest.PostOffice
+                                <td>
+                                <td>
+                                    @accessRequest.Resource
+                                <td>
+                                <td>
+                                    @accessRequest.Period
+                                <td>
+                                <td>
+                                    @accessRequest.FioEmploye
+                                <td>
+                            </tr>
+                        </table>
+                    </div>
+

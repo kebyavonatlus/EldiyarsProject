@@ -1,0 +1,50 @@
+﻿@model IEnumerable<HelpDeskTest.Models.EmployeViewModel>
+@{
+    ViewBag.Title = "Каталог сотрудников";
+}
+
+<h2>Каталог сотрудников</h2>
+<table class="table table-hover">
+
+    @Html.ActionLink("Добавить сотрудника", "Create")
+
+
+    <tr>
+        <th>Имя сотрудника</th>
+        <th>Должность</th>
+        <th>Отдел|</th>
+        <th>Логин в системе</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PositionName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentID)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.UserLog)
+            </td>
+
+
+        </tr>
+    }
+</table>
+
+<p>
+@Html.ActionLink("Предоставление прав доступа сотруднику", "Users", "UserRoles")
+</p>
+<p>
+    @Html.ActionLink("Создать новую учетную запись для сотрудника", "Register", "Account")
+</p>
+

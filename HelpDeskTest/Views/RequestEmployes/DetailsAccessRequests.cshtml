@@ -1,0 +1,87 @@
+﻿@model < HelpDeskTest.Models.Request >
+
+@{
+    ViewBag.Title = "DetailsAccessRequests";
+    HelpDeskTest.Models.AccessRequest accessRequest = ViewBag.accessRequest;
+}
+
+
+<h2>Подробнее о заявке</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestTypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfRegistration)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+
+            <td>
+                @Html.DisplayNameFor(model => model.RequestId)
+            <td />
+
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestTypeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfRegistration)
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+
+
+<p>
+    <div>
+        <hr />
+        <table class="table-hover">
+            <tr>
+                <td>
+                    @accessRequest.RequestId
+                <td>
+                <td>
+                    @accessRequest.Rationale
+                <td>
+                <td>
+                    @accessRequest.Spark
+                <td>
+                <td>
+                    @accessRequest.NetworkFolder
+                <td>
+                <td>
+                    @accessRequest.PostOffice
+                <td>
+                <td>
+                    @accessRequest.Resource
+                <td>
+                <td>
+                    @accessRequest.Period
+                <td>
+                <td>
+                    @accessRequest.FioEmploye
+                <td>
+            </tr>
+        </table>
+    </div>

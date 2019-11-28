@@ -1,0 +1,39 @@
+﻿@model IEnumerable<HelpDeskTest.Models.AllRequestViewModel>
+
+
+
+@using (Html.BeginForm("Create", "RequestEmployes", FormMethod.Get))
+{
+    <div class="form-inline">
+        <div class="form-group">
+            @Html.DropDownListFor(model => model.EmployeId, ViewBag.Employes as SelectList),
+            new { @class = "form-control", @id= "requestTypeID" })
+        </div>
+        <button class="btn btn-primary" type="submit">Add Request</button>
+    </div>
+}
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cause)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Отправить на согласование", "Edit", new { id = Model.RequestId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,114 @@
+﻿@*@using HelpDeskTest.Enums;*@
+@model IEnumerable<HelpDeskTest.Models.AllRequestViewModel>
+@{
+    ViewBag.Title = "Заявки";
+  
+}
+
+<html>
+<head>
+    <link href='@Url.Content("~/Content/themes/base/jquery-ui.css")' rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+
+    <style>
+        body {
+            background: #f5f5f5; /* Цвет фона */
+            color: #000000; /* Цвет текста */
+        }
+    </style>
+</head>
+<body>
+    <h2>Заявки</h2>
+    @using (Html.BeginForm("Create", "AllRequest", FormMethod.Get))
+    {
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.DropDownList("requestTypeID", (IEnumerable<SelectListItem>)EnumHelper.GetSelectList(typeof(HelpDeskTest.Enums.RequestType)),
+               new { @class = "form-control", @id= "requestTypeID" })
+            </div>
+            <button class="btn btn-primary" type="submit">Создать заявку</button>
+        </div>
+    }
+
+    <div class="panel-body">
+        <table class="table table-responsive table-responsive" id="questionsTable">
+
+
+            <tr>
+                <th>Номер заявки</th>
+                <th>Вид документа</th>
+                <th>Статус</th>
+                <th>Автор</th>
+
+                <th>Дата создания заявки</th>
+                <th>Дата закрытие заявки</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestId)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestType)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StatusType)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeId)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfRegistration)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateOfExit)
+                    </td>
+                    @*@if (ViewBag.CurrentEmployeeID == item.EmployeId)
+                {*@
+
+                    <td>
+                        @Html.ActionLink("Просмотр", "Details", new { RequestId = item.RequestId }, new { @class = "btn btn-success" })
+
+                    </td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>
+                            @Html.ActionLink("Закрыть", "Close", new { RequestId = item.RequestId }, new { @class = "btn btn-primary" })
+
+
+                        </td>
+                    }
+                    <td>
+                        @Html.ActionLink("Отчет", "Report", new { RequestId = item.RequestId }, new { @class = "btn btn-danger" })
+
+
+                    </td>
+
+                    @*}*@
+
+
+
+                </tr>
+            }
+        </table>
+
+        </div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+    $(function () {
+        $("#questionsTable").DataTable();
+    });
+</script>

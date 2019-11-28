@@ -1,0 +1,26 @@
+﻿@model HelpDeskTest.Models.AccessRequest
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Редактировать</h2>
+@using (Html.BeginForm("Edit", "AccessRequest", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.RequestId)
+        <p>
+            @Html.LabelFor(m => m.Rationale, "Обоснование")
+            <br />
+            @Html.EditorFor(m => m.Rationale)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Resource, "Ресурс")
+            <br />
+            @Html.EditorFor(m => m.Resource)
+
+        </p>
+        
+        <p><input type="submit" value="Отправить" /></p>
+    </fieldset>
+}

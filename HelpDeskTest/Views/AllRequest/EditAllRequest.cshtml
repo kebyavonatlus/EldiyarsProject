@@ -1,0 +1,46 @@
+﻿@model HelpDeskTest.Models.Request
+@{
+    ViewBag.Title = "Редактировать заявку";
+}
+
+<h2>Изменить заявку</h2>
+
+@using (Html.BeginForm("EditAllRequest", "AllRequest", FormMethod.Get))
+{
+<fieldset>
+    @Html.HiddenFor(m => m.RequestId)
+    <p>
+        @Html.LabelFor(m => m.EmployeId, "Код сотрудника")
+        <br />
+        @Html.DisplayFor(m => m.EmployeId)
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.StatusId, "Статус")
+        <br />
+        @Html.EditorFor(m => m.StatusId)
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.RequestTypeID, "Тип документа")
+        <br />
+        @Html.DisplayFor(m => m.RequestTypeID)
+    </p>
+
+    <p>
+        @Html.LabelFor(m => m.DateOfRegistration, "Дата создания документа")
+        <br />
+        @Html.DisplayFor(m => m.DateOfRegistration)
+    </p>
+
+   
+    <p>
+        @Html.LabelFor(m => m.DateOfExit, "Дата закрытия документа")
+        <br />
+        @Html.EditorFor(model => model.DateOfExit)
+        @Html.ValidationMessageFor(model => model.DateOfExit)
+    </p>
+  
+    <p><input type="submit" value="Изменить" /></p>
+</fieldset>
+}

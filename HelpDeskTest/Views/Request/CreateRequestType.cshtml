@@ -1,0 +1,27 @@
+﻿@model HelpDeskTest.Models.IBankRequest
+@{
+       
+
+                ViewBag.Title = "Создание заявки";
+               Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+<fieldset>
+  <p>
+        ФИО клиента  <br />
+        @Html.EditorFor(model => model.UserName)
+    </p>
+
+    <p>
+        "Код" предоставленный клиенту  <br />
+        @Html.EditorFor(model => model.UserPassword)
+    </p>
+
+    <p>
+        <input type="submit" value="Добавить игрока" />
+    </p>
+
+</fieldset>
+}

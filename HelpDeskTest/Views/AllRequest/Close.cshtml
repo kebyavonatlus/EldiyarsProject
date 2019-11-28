@@ -1,0 +1,66 @@
+﻿@model HelpDeskTest.Models.Request
+
+@{
+    ViewBag.Title = "Close";
+}
+
+<h2>Закрыть заявку</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Заявка № @Model.RequestId</h4>
+    <hr />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StatusId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.StatusId, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.StatusId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RequestTypeID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.RequestTypeID, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.RequestTypeID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <p>
+
+        <br />
+        @Html.EditorFor(model => model.DateOfExit)
+    </p>
+    <p>
+
+        <br />
+        @Html.EditorFor(model => model.DateOfRegistration)
+    </p>
+    <p>
+
+        <br />
+        @Html.EditorFor(model => model.EmployeId)
+    </p>
+    <p>
+
+        <br />
+        @Html.EditorFor(model => model.RequestId)
+    </p>
+    <hr />
+    <hr />
+    <h3>Вы уверены, что хотите закрыть заявку?</h3>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-danger" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,58 @@
+﻿@model HelpDeskTest.Models.Request
+
+@{
+    ViewBag.Title = "CloseDetails";
+}
+
+<h2>CloseDetails</h2>
+
+<div>
+    <h4>Request</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestTypeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestTypeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfRegistration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfRegistration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfExit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfExit)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RequestId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

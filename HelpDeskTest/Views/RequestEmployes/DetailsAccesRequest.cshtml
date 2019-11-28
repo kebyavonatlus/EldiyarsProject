@@ -1,0 +1,106 @@
+﻿@model HelpDeskTest.Models.Request
+
+@{
+    ViewBag.Title = "DetailsAccessRequests";
+    HelpDeskTest.Models.AccessRequest accessRequest = ViewBag.accessRequest;
+    HelpDeskTest.Models.Employe employe = ViewBag.employe;
+}
+
+
+<h2>Подробнее о заявке</h2>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-bordered table-hover">
+            <tbody>
+                <tr>
+                    <th>
+                        ID заяки
+                    </th>
+                    <th>
+                        Статус
+                    </th>
+                    <th>
+                        Тип документа
+                    </th>
+                    <th>
+                        Автор
+                    </th>
+                    <th>
+                        Дата создания документа
+                    </th>
+                    <th>
+                        Обоснование
+                    </th>
+                    <th>
+                        Спарк
+                    </th>
+                    <th>
+                        Почта
+                    </th>
+                    <th>
+                        Сетевая папка ВНД
+                    </th>
+                    <th>
+                        Ресурс
+                    </th>
+                    <th>
+                        Период
+                    </th>
+                    <th>
+                        Примечания
+                    </th>
+                </tr>
+               
+                <tr>
+                    <td>
+                        @Model.RequestId
+                    </td>
+
+                    <td>
+                        @Model.StatusId
+                    </td>
+                    <td>
+                        @Model.RequestTypeID
+                    </td>
+
+                    <td>
+                       @employe.Name
+                    </td>
+                    <td>
+                        @Model.DateOfRegistration
+                    </td>
+                    <td>
+                        @accessRequest.Rationale
+                    </td>
+                    <td>
+                        @accessRequest.Spark
+                    </td>
+
+                    <td>
+                        @accessRequest.PostOffice
+                    </td>
+                    <td>
+                        @accessRequest.NetworkFolder
+                    </td>
+                    <td>
+                        @accessRequest.Resource
+                    </td>
+                    <td>
+                        @accessRequest.Period
+                    </td>
+                    <td>
+                        @accessRequest.FioEmploye
+                    </td>
+                    <td>
+                        @Html.ActionLink("Потвердить", "CreateAccess", new { id = Model.RequestId, employeId=employe.EmployeID }) |
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<hr />

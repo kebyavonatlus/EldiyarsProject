@@ -1,0 +1,50 @@
+﻿@model HelpDeskTest.Models.Request
+@{
+
+
+    ViewBag.Title = "Заявка";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Новая заявка</h2>
+@using (Html.BeginForm())
+{
+<fieldset>
+    <legend>Новая заявка</legend>
+
+   
+
+    @if (User.IsInRole("Admin"))
+    {
+   
+    }
+    <p>
+        Автор <br />
+        @Html.DisplayFor(model => model.EmployeId)
+    </p>
+
+
+
+    <p>
+        Дата регистрации <br />
+        @Html.EditorFor(model => model.DateOfRegistration, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+    </p>
+
+    <p>
+        Дата закрытия <br />
+        @Html.EditorFor(model => model.DateOfExit)
+    </p>
+
+    
+
+   
+
+    <p>
+        <input type="submit" value="Создать заявку" />
+    </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("К списку сотрудников", "Index")
+</div>
+
+

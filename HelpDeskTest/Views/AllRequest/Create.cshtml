@@ -1,0 +1,74 @@
+﻿@model HelpDeskTest.Models.Request
+@{
+
+
+    ViewBag.Title = "Заявка";
+    Layout = "~/Views/Shared/LayoutForUsers.cshtml";
+}
+<h2>Новая заявка</h2>
+@using (Html.BeginForm())
+{
+<fieldset>
+    <legend>Новая заявка</legend>
+
+
+
+   
+        <p>
+            Статус <br />
+            @Html.EditorFor(model => model.StatusId, new  { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+        </p>
+  
+    <p>
+        Автор <br />
+        @Html.EditorFor(model => model.EmployeId)
+    </p>
+
+
+
+    <p>
+        Дата регистрации <br />
+        @Html.EditorFor(model => model.DateOfRegistration, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+    </p>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <p>
+            Дата закрытия <br />
+            @Html.EditorFor(model => model.DateOfExit)
+        </p>
+    }
+
+
+
+
+    <p>
+        <input type="submit" value="Создать заявку" />
+    </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("К списку сотрудников", "Index")
+</div>
+
+
+<script>
+    function saveFormToLocalStorage(formObject) {
+        const formObjectAsAString = JSON.stringify(formObject)     
+
+        localStorage.setItem("bankRequest", formObjectAsAString)
+    }
+
+   const form = document.querySelector("form")
+
+    form.submit = function (e) {
+        e.preventDefault()
+
+        const formObject = {}
+
+        saveFormToLocalStorage(formObject)
+
+        window.location.replace("@Url.Action("Index")")
+    }
+  
+</script>

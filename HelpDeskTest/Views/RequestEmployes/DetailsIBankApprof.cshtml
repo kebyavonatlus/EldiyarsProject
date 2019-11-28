@@ -1,0 +1,76 @@
+﻿@model HelpDeskTest.Models.Request
+
+@{
+    ViewBag.Title = "DetailsAccessRequests";
+    HelpDeskTest.Models.ResetUserPasswordRequest r = ViewBag.r;
+    HelpDeskTest.Models.Employe employe = ViewBag.employe;
+}
+
+
+<h2>Подробнее о заявке</h2>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-bordered table-hover">
+            <tbody>
+                <tr>
+                    <th>
+                        ID заяки
+                    </th>
+                    <th>
+                        Статус
+                    </th>
+                    <th>
+                        Тип документа
+                    </th>
+                    <th>
+                        Автор
+                    </th>
+                    <th>
+                        Дата создания документа
+                    </th>
+                    <th>
+                        Наименование работ
+                    </th>
+                    <th>
+                        Приина смены пароля
+                    </th>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        @Model.RequestId
+                    </td>
+
+                    <td>
+                        @Model.StatusId
+                    </td>
+                    <td>
+                        @Model.RequestTypeID
+                    </td>
+
+                    <td>
+                        @employe.Name
+                    </td>
+                    <td>
+                        @Model.DateOfRegistration
+                    </td>
+                    <td>
+                        @r.NameOfWorks
+                    </td>
+                    <td>
+                        @r.Cause
+                    </td>
+
+
+                    
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<hr />
+

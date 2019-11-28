@@ -1,0 +1,78 @@
+﻿@model HelpDeskTest.Models.AccessRequest
+
+@{
+    ViewBag.Title = "Подробнее";
+   
+}
+
+<h2>Подробнее о заявке</h2>
+
+<div>
+    <h4>AccessRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rationale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rationale)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resource)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resource)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostOffice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostOffice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetworkFolder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetworkFolder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Period)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Period)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FioEmploye)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FioEmploye)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Отправить на соглосования", "toModerator", new { id = Model.RequestId }) |
+
+</p>
+
+
+

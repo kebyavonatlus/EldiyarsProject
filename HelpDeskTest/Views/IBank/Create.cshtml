@@ -1,0 +1,33 @@
+﻿@model HelpDeskTest.Models.ResetUserPasswordRequest
+
+@{
+    ViewBag.Title = "Создание заявки";
+    Layout = "~/Views/Shared/LayoutForUsers.cshtml";
+}
+<h2>Прошу сменить пароль</h2>
+@using (Html.BeginForm())
+{
+<fieldset>
+
+    <p>
+        Указать наименование работ:
+        <br />
+        @Html.EditorFor(model => model.NameOfWorks)
+    </p>
+
+    <p>
+        Причина смены пароля
+        <br />
+        @Html.EditorFor(model => model.Cause)
+    </p>
+
+   
+
+    <p>
+        <input type="submit" value="Создать заявку" />
+    </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("К списку заявок", "Index")
+</div>

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<HelpDeskTest.Models.ShowAccessRequestViewModel>
+@{
+    ViewBag.Title = "Заявка на предоставление прав доступа  ";
+}
+
+<h2>Заявка на предоставление прав доступа к информационным системам</h2>
+<table class="table table-hover">
+
+    @Html.ActionLink("Создать заявку", "Create")
+
+
+    <tr>
+        <th>Номер заявки</th>
+        <th>Имя сотрудника</th>
+        <th>Дата создания заявки</th>
+        <th>Обоснование на предоставление</th>
+        <th>Спарк</th>
+        <th>Почта</th>
+        <th>Системная папка ВНД</th>
+        <th>Ресурс</th>
+        <th>Период</th>
+        <th>Примечания</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestId)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeId)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfRegistration)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Rationale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Spark)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.PostOffice)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.NetworkFolder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resource)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Period)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.FIOEmploye)
+        </td>
+    </tr>
+    }
+</table>
+
+
+
+

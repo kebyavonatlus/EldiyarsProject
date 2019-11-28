@@ -1,0 +1,42 @@
+﻿@model HelpDeskTest.Models.Employe
+@{
+       
+
+                ViewBag.Title = "Добавление сотрудника";
+               Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Добавление нового сотрудника</h2>
+@using (Html.BeginForm())
+{
+<fieldset>
+    <legend>Сотрудники</legend>
+    <p>
+        ФИО сотрудника <br />
+        @Html.EditorFor(model => model.Name)
+    </p>
+
+    <p>
+        Отдел <br />
+        @Html.DropDownListFor(model => model.DepartmentID, ViewBag.Departments as SelectList)
+    </p>
+
+    <p>
+        Должность <br />
+        @Html.EditorFor(model => model.PositionName)
+    </p>
+
+    <p>
+        Логин сотрудника <br />
+        @Html.DropDownListFor(model => model.UserId, ViewBag.Users as SelectList)
+    </p>
+
+    <p>
+        <input type="submit" value="Добавить игрока" />
+    </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("К списку сотрудников", "Index")
+</div>
+
+

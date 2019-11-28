@@ -1,0 +1,22 @@
+﻿@model HelpDeskTest.Models.Request
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            @Html.LabelFor(model => model.RequestId)
+            <p>@Html.DisplayFor(model => model.RequestId)</p>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.StatusId)
+            <p>@Html.DisplayFor(model => model.StatusId)</p>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.DateOfRegistration)
+            <p>@Html.DisplayFor(model => model.DateOfRegistration)</p>
+        </div>
+        <p><input type="submit" value="Добавить" /></p>
+    }
+</div>

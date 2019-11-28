@@ -1,0 +1,32 @@
+﻿@model List<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Роли";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading panel-title">
+        @ViewBag.Title
+    </div>
+    <div class="panel-body">
+        @Html.ActionLink("Добавить",
+            "Create",
+            "UserRoles")
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Название роли</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var role in Model)
+                {
+                    <tr>
+
+                        <td>@role.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
